@@ -71,6 +71,7 @@ module Krakow
     attribute :response_wait, Numeric, :default => 1.0
     attribute :response_interval, Numeric, :default => 0.03
     attribute :error_wait, Numeric, :default => 0
+    attribute :none_wait, Numeric, :default => 0
     attribute :enforce_features, [TrueClass,FalseClass], :default => true
     attribute :features_args, Hash, :default => ->{ Hash.new }
 
@@ -90,6 +91,7 @@ module Krakow
     # @option args [Numeric] :response_wait time to wait for response
     # @option args [Numeric] :response_interval sleep interval for wait loop
     # @option args [Numeric] :error_wait time to wait for error response
+    # @option args [Numeric] :none_wait time to wait for empty response
     # @option args [TrueClass, FalseClass] :enforce_features fail if features are unavailable
     # @option args [Hash] :feature_args options for connection features
     def initialize(args={})
@@ -293,6 +295,8 @@ module Krakow
         response_wait
       when :error_only
         error_wait
+      when :none
+        none_wait
       end
     end
 
