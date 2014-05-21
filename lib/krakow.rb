@@ -1,5 +1,6 @@
 require 'celluloid/autostart'
 require 'multi_json'
+require 'krakow/version'
 
 # NSQ client and producer library
 module Krakow
@@ -14,6 +15,5 @@ module Krakow
   autoload :FrameType, 'krakow/frame_type'
   autoload :Producer, 'krakow/producer'
   autoload :Utils, 'krakow/utils'
-  autoload :Version, 'krakow/version'
 
 end
